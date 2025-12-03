@@ -11,46 +11,21 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { signInWithEmailAndPassword } from "@/app/auth/sign-in/action";
-import { FormEvent, useState, useTransition } from "react";
 import { AlertTriangle, Loader2 } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+import { useFormState } from "@/hooks/use-form-state";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"form">) {
-  // const [{ errors, message, success }, formAction, isPending] = useActionState(
-  //   signInWithEmailAndPassword,
-  //   { success: false, message: null, errors: null }
-  // );
-
-  const [isPending, startTransition] = useTransition();
-  const [{ success, message, errors }, setFormState] = useState<{
-    success: boolean;
-    message: string | null;
-    errors: Record<string, string[]> | null;
-  }>({
-    success: false,
-    message: null,
-    errors: null,
-  });
-
-  async function handleSignIn(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    const form = event.currentTarget;
-    const data = new FormData(form);
-
-    startTransition(async () => {
-      const state = await signInWithEmailAndPassword(data);
-
-      setFormState(state);
-    });
-  }
+  const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
+    signInWithEmailAndPassword
+  );
 
   return (
     <form
-      onSubmit={handleSignIn}
+      onSubmit={handleSubmit}
       className={cn("flex flex-col gap-6", className)}
       {...props}
     >
