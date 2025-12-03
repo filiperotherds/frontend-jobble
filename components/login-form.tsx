@@ -8,13 +8,18 @@ import {
   FieldSeparator,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { signInWithEmailAndPassword } from "@/app/auth/sign-in/action";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"form">) {
   return (
-    <form className={cn("flex flex-col gap-6", className)} {...props}>
+    <form
+      action={signInWithEmailAndPassword}
+      className={cn("flex flex-col gap-6", className)}
+      {...props}
+    >
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
           <h1 className="text-2xl font-bold">Acesse sua conta</h1>
@@ -26,6 +31,7 @@ export function LoginForm({
           <FieldLabel htmlFor="email">E-mail</FieldLabel>
           <Input
             id="email"
+            name="email"
             type="email"
             placeholder="email@jobble.com.br"
             required
@@ -41,7 +47,7 @@ export function LoginForm({
               Esqueceu sua senha?
             </a>
           </div>
-          <Input id="password" type="password" required />
+          <Input id="password" name="password" type="password" required />
         </Field>
         <Field>
           <Button type="submit">Entrar</Button>
