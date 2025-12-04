@@ -64,7 +64,7 @@ export function SignupForm({
           <FieldDescription>Por favor confirme sua senha.</FieldDescription>
         </Field>
         <Field>
-          <Button type="submit">Cie sua Conta</Button>
+          <Button type="submit">Crie sua Conta</Button>
         </Field>
         <FieldSeparator>Ou continue com</FieldSeparator>
         <Field>

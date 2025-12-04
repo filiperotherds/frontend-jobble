@@ -1,4 +1,6 @@
+import { isAuthenticated } from "@/auth/auth";
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Entrar - Workee",
@@ -6,14 +8,14 @@ export const metadata: Metadata = {
     "Encontre profissionais qualificados para qualquer serviço que você precise, com avaliações reais e preços transparentes.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <div className="">
-      {children}
-    </div>
-  );
+  if (await isAuthenticated()) {
+    redirect("/");
+  }
+
+  return <div className="">{children}</div>;
 }

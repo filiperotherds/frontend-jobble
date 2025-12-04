@@ -10,7 +10,7 @@ export default function SignupPage() {
             <img
               src="/jobble-wordmark.svg"
               alt="jobble logo"
-              className="w-16"
+              className="w-20"
             />
           </Link>
         </div>
