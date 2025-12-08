@@ -1,15 +1,10 @@
-import { Avatar, AvatarImage, AvatarFallback } from "@radix-ui/react-avatar";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "@radix-ui/react-dropdown-menu";
-import { ChevronDown, Link, Settings } from "lucide-react";
+import { Settings } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import Link from "next/link";
 
 const organization = {
-  name: "Organization Name",
-  slug: "organization-slug",
+  name: "Chaveiro Panorama",
+  slug: "chaveiro-panorama",
   avatarUrl: null,
 };
 
@@ -25,14 +20,8 @@ function getInitials(name: string): string {
 
 export default function OrganizationButton() {
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center gap-3 outline-none cursor-pointer">
-        <div className="flex flex-col items-end">
-          <span className="text-sm font-medium">{organization.name}</span>
-          <span className="text-xs font-medium text-muted-foreground">
-            {organization.slug}
-          </span>
-        </div>
+    <Link href="/organization/settings" className="w-full">
+      <div className="w-full p-2 flex items-center gap-3 outline-none bg-secondary hover:bg-secondary/80 rounded-md">
         <Avatar>
           {organization.avatarUrl && (
             <AvatarImage src={organization.avatarUrl} />
@@ -41,16 +30,14 @@ export default function OrganizationButton() {
             <AvatarFallback>{getInitials(organization.name)}</AvatarFallback>
           )}
         </Avatar>
-        <ChevronDown className="size-4 text-muted-foreground" />
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem>
-          <Link href="/account/settings">
-            <Settings className="mr-2 size-4" />
-            Configurações
-          </Link>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+        <div className="flex flex-col items-start">
+          <span className="text-sm font-medium">{organization.name}</span>
+          <span className="text-xs font-medium text-muted-foreground">
+            {organization.slug}
+          </span>
+        </div>
+        <Settings className="size-4 text-muted-foreground" />
+      </div>
+    </Link>
   );
 }
