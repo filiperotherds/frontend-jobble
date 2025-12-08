@@ -29,7 +29,7 @@ export default async function OrgAppLayout({
   return (
     <div className="w-full">
       <Topbar />
-      <div className="w-full h-full md:pt-10">
+      <div className="w-full h-full pt-[40px] md:pt-10">
         <Header />
         <SidebarProvider className="min-h-[calc(100svh-64px)] md:min-h-[calc(100svh-104px)]">
           <AppSidebar />
