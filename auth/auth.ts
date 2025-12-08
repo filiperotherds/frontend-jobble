@@ -10,13 +10,11 @@ export async function auth() {
   const token = (await cookies()).get("token")?.value;
 
   if (!token) {
-    redirect("/auth/sign-in");
+    redirect("/sign-in");
   }
 
   try {
     const user = await getProfile();
-
-    console.log(user)
 
     return { user };
   } catch (err) {}

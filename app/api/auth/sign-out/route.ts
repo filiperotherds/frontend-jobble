@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest) {
   const redirectUrl = new URL(request.nextUrl);
 
-  redirectUrl.pathname = "/auth/sign-in";
+  redirectUrl.pathname = "/sign-in";
 
   (await cookies()).delete("token");
 

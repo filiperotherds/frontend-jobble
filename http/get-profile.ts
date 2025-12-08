@@ -5,6 +5,7 @@ interface GetProfileResponse {
   name: string | null;
   email: string;
   avatarUrl: string | null;
+  accountType: "INDIVIDUAL" | "ORGANIZATION";
   userProfile: {
     id: string;
   };

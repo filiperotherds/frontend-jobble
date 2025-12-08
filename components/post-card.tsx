@@ -6,7 +6,7 @@ interface PostCardProps {
 
 export default function PostCard({ text }: PostCardProps) {
   return (
-    <div className="w-sm p-4 space-y-4 flex flex-col items-start justify-center bg-white rounded-xl pointer-events-none">
+    <div className="w-sm p-4 space-y-4 flex flex-col items-start justify-center bg-white rounded-xl shadow-xl pointer-events-none">
       {/* Header content - photo / name / @ */}
       <div className="w-full flex flex-row items-center justify-start space-x-3">
         <div className="size-10 rounded-full border border-border overflow-hidden">

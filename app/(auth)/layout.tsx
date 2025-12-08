@@ -14,7 +14,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   if (await isAuthenticated()) {
-    redirect("/");
+    redirect("/dashboard");
   }
 
   return <div className="">{children}</div>;

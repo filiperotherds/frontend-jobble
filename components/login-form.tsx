@@ -10,17 +10,30 @@ import {
   FieldSeparator,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { signInWithEmailAndPassword } from "@/app/auth/sign-in/action";
+import { signInWithEmailAndPassword } from "@/app/(auth)/sign-in/actions";
 import { AlertTriangle, Loader2 } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import { useFormState } from "@/hooks/use-form-state";
+import { useRouter } from "next/navigation";
+import { getProfile } from "@/http/get-profile";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"form">) {
+  const router = useRouter();
+
   const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
-    signInWithEmailAndPassword
+    signInWithEmailAndPassword,
+    async () => {
+      const { accountType } = await getProfile();
+
+      if (accountType === "INDIVIDUAL") {
+        router.push("/home");
+      } else {
+        router.push("/dashboard");
+      }
+    }
   );
 
   return (
@@ -112,7 +125,7 @@ export function LoginForm({
           </Button>
           <FieldDescription className="text-center">
             Não tem uma conta?{" "}
-            <a href="/auth/sign-up" className="underline underline-offset-4">
+            <a href="/sign-up" className="underline underline-offset-4">
               Cadastre-se
             </a>
           </FieldDescription>

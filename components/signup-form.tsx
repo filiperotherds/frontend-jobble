@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -10,39 +10,78 @@ import {
   FieldSeparator,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { useFormState } from "@/hooks/use-form-state";
+import { useRouter } from "next/navigation";
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+import { AlertTriangle, Loader2 } from "lucide-react";
+import { organizationSignUpAction } from "@/app/(auth)/organization/sign-up/actions";
+
+type signUpType = "INDIVIDUAL" | "ORGANIZATION";
 
 export function SignupForm({
+  signUpType,
   className,
   ...props
-}: React.ComponentProps<"form">) {
+}: React.ComponentProps<"form"> & { signUpType?: signUpType }) {
+  const router = useRouter();
+
+  const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
+    organizationSignUpAction,
+    () => {
+      if (signUpType === "ORGANIZATION") {
+        router.push("/complete-signup");
+      } else {
+        router.push("/sign-in");
+      }
+    }
+  );
+
   return (
-    <form className={cn("flex flex-col gap-6", className)} {...props}>
+    <form
+      onSubmit={handleSubmit}
+      className={cn("flex flex-col gap-6", className)}
+      {...props}
+    >
+      {success === false && message && (
+        <Alert variant="destructive">
+          <AlertTriangle className="size-4" />
+          <AlertTitle>Falha ao entrar!</AlertTitle>
+          <AlertDescription>
+            <p>{message}</p>
+          </AlertDescription>
+        </Alert>
+      )}
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
-          <h1 className="text-2xl font-bold">Crie sua conta</h1>
+          <h1 className="text-2xl font-bold">
+            {signUpType === "ORGANIZATION"
+              ? "Torne-se um Parceiro!"
+              : "Crie sua Conta"}
+          </h1>
           <p className="text-muted-foreground text-sm text-balance">
             Preencha o formulário abaixo para criar sua conta
           </p>
         </div>
         <Field>
           <FieldLabel htmlFor="name">Nome Completo</FieldLabel>
-          <Input
-            id="name"
-            name="name"
-            type="text"
-            placeholder="José Silva"
-            required
-          />
+          <Input id="name" name="name" type="text" placeholder="José Silva" />
+          {errors?.name && (
+            <p className="text-xs font-medium text-red-500">{errors.name[0]}</p>
+          )}
         </Field>
         <Field>
           <FieldLabel htmlFor="email">E-mail</FieldLabel>
           <Input
             id="email"
             name="email"
-            type="email"
+            type="text"
             placeholder="email@jobble.com.br"
-            required
           />
+          {errors?.email && (
+            <p className="text-xs font-medium text-red-500">
+              {errors.email[0]}
+            </p>
+          )}
           <FieldDescription>
             Usaremos para entrar em contato com você. Não compartilharemos seu
             e-mail com mais ninguém.
@@ -51,20 +90,36 @@ export function SignupForm({
         <Field>
           <FieldLabel htmlFor="password">Senha</FieldLabel>
           <Input id="password" name="password" type="password" required />
+          {errors?.password && (
+            <p className="text-xs font-medium text-red-500">
+              {errors.password[0]}
+            </p>
+          )}
           <FieldDescription>Deve ter no mínimo 8 caracteres.</FieldDescription>
         </Field>
         <Field>
-          <FieldLabel htmlFor="confirm-password">Confirme sua Senha</FieldLabel>
+          <FieldLabel htmlFor="confirm_password">Confirme sua Senha</FieldLabel>
           <Input
-            id="confirm-password"
-            name="confirm-password"
+            id="confirm_password"
+            name="confirm_password"
             type="password"
             required
           />
+          {errors?.confirm_password && (
+            <p className="text-xs font-medium text-red-500">
+              {errors.confirm_password[0]}
+            </p>
+          )}
           <FieldDescription>Por favor confirme sua senha.</FieldDescription>
         </Field>
         <Field>
-          <Button type="submit">Crie sua Conta</Button>
+          <Button type="submit" disabled={isPending}>
+            {isPending ? (
+              <Loader2 className="size-4 animate-spin" />
+            ) : (
+              "Crie sua Conta"
+            )}
+          </Button>
         </Field>
         <FieldSeparator>Ou continue com</FieldSeparator>
         <Field>
@@ -95,7 +150,7 @@ export function SignupForm({
             Criar com Google
           </Button>
           <FieldDescription className="px-6 text-center">
-            Já tem uma conta? <a href="/auth/sign-in">Entrar</a>
+            Já tem uma conta? <a href="/sign-in">Entrar</a>
           </FieldDescription>
         </Field>
       </FieldGroup>
