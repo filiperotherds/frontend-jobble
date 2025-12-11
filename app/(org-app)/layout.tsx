@@ -34,7 +34,7 @@ export default async function OrgAppLayout({
         <SidebarProvider className="min-h-[calc(100svh-64px)] md:min-h-[calc(100svh-104px)]">
           <AppSidebar />
           <main className="w-full">
-            <div className="w-full p-4 items-start justify-start flex flex-col md:flex-row">
+            <div className="w-full p-4 gap-4 items-start justify-start flex flex-col md:flex-row">
               <SidebarTrigger />
               {children}
             </div>
