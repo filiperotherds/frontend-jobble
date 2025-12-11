@@ -23,7 +23,7 @@ export default async function PromotionalCard() {
             alt="Jobble"
             className="w-16 dark:invert"
           />
-          <div className="flex flex-col items-start justify-center space-y-2 md:space-y-4">
+          <div className="flex flex-col items-start justify-between">
             <h1 className="text-xl md:text-4xl font-bold text-zinc-700">
               Bem-vindo(a) de volta, {firstName}!
             </h1>
