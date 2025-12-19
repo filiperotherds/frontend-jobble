@@ -49,7 +49,7 @@ export default function Hero() {
       <div className="absolute z-0 w-full h-full flex flex-row items-center justify-start">
         <DotBackground />
       </div>
-      <div className="z-50 w-full max-w-[1200px] h-auto flex items-center justify-center">
+      <div className="z-10 w-full max-w-[1200px] h-auto flex items-center justify-center">
         <div className="w-full flex flex-col items-center justify-center space-y-10">
           <h1 className="text-white text-7xl font-extrabold text-center max-w-[600px]">
             Para quem faz o Brasil acontecer
