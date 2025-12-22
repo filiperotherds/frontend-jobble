@@ -1,16 +1,17 @@
 "use client";
 
 import AnimatedContent from "./AnimatedContent";
-import { Globe } from "./ui/globe";
 
-export default function GlobeSection() {
+export default function Testimonials() {
   return (
-    <div className="relative px-8 w-full flex items-center justify-center">
-      <div className="w-full max-w-[1200px] flex items-center justify-between">
+    <div className="px-8 py-20 w-full flex flex-col items-center justify-center">
+      <div className="w-full max-w-[1200px] h-auto flex items-center justify-between">
+        <div className=""></div>
+
         <AnimatedContent
           distance={150}
           direction="horizontal"
-          reverse={true}
+          reverse={false}
           duration={1.2}
           ease="power3.out"
           initialOpacity={0}
@@ -19,7 +20,7 @@ export default function GlobeSection() {
           threshold={0.2}
           delay={0.3}
         >
-          <div className="z-20 w-full max-w-[600px] flex flex-col items-start justify-start space-y-8">
+          <div className="z-20 w-full max-w-[600px] flex flex-col items-end justify-start space-y-8">
             <div className="flex flex-row items-center justify-center space-x-2">
               <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -47,16 +48,16 @@ export default function GlobeSection() {
                 <circle cx="10" cy="10" r="2.5" fill="#4ade80" />
               </svg>
 
-              <span className="text-xs font-mono text-muted-foreground">
+              <span className="text-end text-xs font-mono text-muted-foreground">
                 Alcance Global
               </span>
             </div>
 
-            <h1 className="text-5xl font-extrabold text-accent-foreground">
+            <h1 className="text-end text-5xl font-extrabold text-accent-foreground">
               VISIBILIDADE GLOBAL PARA O SEU NEGÓCIO
             </h1>
 
-            <p className="text-muted-foreground leading-6">
+            <p className="text- text-muted-foreground leading-6">
               Veja em tempo real como seu negócio está indo em qualquer lugar do
               mundo. Acompanhe quantos leads você está gerando, quanto está
               vendendo e qual é o retorno de cada campanha. Gerencie seus
@@ -66,12 +67,6 @@ export default function GlobeSection() {
             </p>
           </div>
         </AnimatedContent>
-
-        <div className="flex size-[520px] pointer-events-none">
-          <div className="relative flex size-full max-w-lg items-center justify-center">
-            <Globe />
-          </div>
-        </div>
       </div>
     </div>
   );
