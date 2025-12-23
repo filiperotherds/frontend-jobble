@@ -63,9 +63,9 @@ export default function Hero() {
 						<CtaButton title='VAMOS COMEÇAR' />
 					</div>
 
-					<div className='w-full flex flex-col items-end justify-center space-y-10'>
+					<div className='w-full flex flex-col items-center justify-center space-y-10'>
 						<div className='w-full md:max-w-1/2'>
-							<Iphone src='https://placehold.co/900x1600' />
+							<Iphone src='https://i.imgur.com/a5fr5tW.jpeg' />
 						</div>
 					</div>
 				</div>
