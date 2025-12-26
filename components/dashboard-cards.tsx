@@ -1,7 +1,7 @@
 import DashboardCard from "./dashboard-card";
 import { Separator } from "./ui/separator";
 
-const exempleList = [
+const exempleList: DashboardCardsProps[] = [
   {
     title: "Exibições",
     variation: 12.3,
@@ -18,6 +18,11 @@ const exempleList = [
     indicator: "4.7",
   },
 ];
+type DashboardCardsProps = {
+    title: string;
+    variation: number;
+    indicator: string;
+};
 
 export default function DashboardCards() {
   return (
