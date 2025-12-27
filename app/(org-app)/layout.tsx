@@ -5,7 +5,6 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
-import { ChartNoAxesColumnIncreasing } from "lucide-react";
 import MobileNavbar from "@/components/mobile-navbar";
 
 export const metadata: Metadata = {
@@ -30,7 +29,7 @@ export default async function OrgAppLayout({
   return (
     <div className="w-full bg-secondary font-sans">
       <div className="w-full h-full">
-        <Header icon={ChartNoAxesColumnIncreasing} pageTitle="Dashboard" />
+        <Header />
         <SidebarProvider className="min-h-[calc(100svh-64px)] md:min-h-[calc(100svh-104px)]">
           <AppSidebar />
           <main className="w-full">
