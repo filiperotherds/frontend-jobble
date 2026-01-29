@@ -12,6 +12,7 @@ import { useFormState } from "@/hooks/use-form-state";
 import { createNewEstimate } from "./actions";
 import { useRouter } from "next/navigation";
 import { EstimateData } from "./(forms)/estimate-data";
+import { PaymentData } from "./(forms)/payment-data";
 
 export function EstimateForm() {
   const router = useRouter();
@@ -20,7 +21,8 @@ export function EstimateForm() {
   const date = new Date();
   date.setDate(date.getDate() + 14);
 
-  const defaultDeadline = date;
+  const defaultValidity = date;
+  const defaultDeadline = new Date()
 
   const [formData, setFormData] = useState<EstimateFormSchema>({
     name: "",
@@ -35,7 +37,7 @@ export function EstimateForm() {
     paymentMethod: null,
     installments: null,
     downPayment: null,
-    validity: null,
+    validity: defaultValidity,
   });
 
   const updateField = (field: keyof EstimateFormSchema, value: string | Date) => {
@@ -96,7 +98,13 @@ export function EstimateForm() {
               setFormData={setFormData}
             />
           )}
-          {currentStep === 3 && <div />}
+          {currentStep === 3 && (
+            <PaymentData
+              data={formData}
+              updateField={updateField}
+              setFormData={setFormData}
+            />
+          )}
           {currentStep === 4 && <div />}
         </div>
 

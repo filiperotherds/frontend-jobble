@@ -1,6 +1,6 @@
 import { SignupForm } from "@/components/signup-form";
 import Link from "next/link";
-import logo from "@/assets/jobble-teste.png";
+import logo from "@/assets/jobble-logo-white.png";
 
 export default function SignupPage() {
   return (

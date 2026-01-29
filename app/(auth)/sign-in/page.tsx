@@ -3,7 +3,7 @@ import { LoginForm } from "@/components/login-form";
 import PostCard from "@/components/post-card";
 import Link from "next/link";
 
-import logo from "@/assets/jobble-teste.png";
+import logo from "@/assets/jobble-logo-white.png";
 
 export default function SignIn() {
   return (
