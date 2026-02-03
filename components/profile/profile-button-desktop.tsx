@@ -5,12 +5,14 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
 } from "../ui/dropdown-menu";
-import { Settings, LogOut, CircleDashed, Flame } from "lucide-react";
+import { Flame, UserRound, House, CreditCard, Monitor, UsersRound, BriefcaseBusiness, DoorOpen } from "lucide-react";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
 import verifiedIcon from "@/assets/verified.svg";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 function getInitials(name: string): string {
   const initials = name
@@ -29,7 +31,7 @@ export async function ProfileButtonDesktop() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="px-3 py-1.5 flex items-center gap-3 bg-white rounded-xl outline-none cursor-pointer">
+      <DropdownMenuTrigger className="px-3 py-1.5 max-w-60 flex items-center gap-3 bg-white rounded-lg outline-none cursor-pointer">
         <div className="relative">
           <div className="absolute z-20 -bottom-0.5 -right-0.5">
             <Image src={verifiedIcon} alt="verified" />
@@ -45,7 +47,7 @@ export async function ProfileButtonDesktop() {
 
         <div className="flex flex-col items-start">
           <span className="text-sm font-medium">{firstName}</span>
-          <span className="text-xs font-medium text-muted-foreground">
+          <span className="text-xs font-medium text-muted-foreground truncate">
             {user.email}
           </span>
         </div>
@@ -62,33 +64,63 @@ export async function ProfileButtonDesktop() {
       <DropdownMenuContent
         align="end"
         sideOffset={12}
-        className="w-60 bg-neutral-200 rounded-xl border-none"
+        className="w-60 bg-neutral-100 rounded-lg border-none"
       >
-        <div className="w-full bg-white p-2 rounded-xl">
+        <div className="w-full bg-white p-2 rounded-lg">
           <DropdownMenuItem asChild>
-            <a href="/account/settings">
-              <Settings className="mr-2 size-4" />
-              Configurações
+            <Link href="/overview">
+              <House />
+              Início
+            </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem asChild>
+            <a href="/billing">
+              <CreditCard />
+              Assinatura
             </a>
           </DropdownMenuItem>
 
           <DropdownMenuItem asChild>
-            <a href="/api/auth/sign-out">
-              <LogOut className="mr-2 size-4" />
-              Sair
+            <a href="/billing">
+              <UsersRound />
+              Membros
+            </a>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem asChild>
+            <a href="/website">
+              <Monitor />
+              Site da empresa
+            </a>
+          </DropdownMenuItem>
+
+          <DropdownMenuSeparator />
+
+          <DropdownMenuItem asChild>
+            <a href="/account/settings">
+              <UserRound />
+              Seu perfil
+            </a>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <a href="/account/settings">
+              <BriefcaseBusiness />
+              Sua empresa
             </a>
           </DropdownMenuItem>
         </div>
         <div className="p-2 w-full flex flex-row items-center justify-between">
-          <span className="text-xs text-muted-foreground">Feedback</span>
-
-          <Button
-            size={"sm"}
-            className="h-7 border-none bg-white hover:bg-neutral-100 text-muted-foreground rounded-lg"
-          >
-            <LogOut />
-            Sair
-          </Button>
+          <a href="/feedback" className="text-xs text-muted-foreground hover:underline">Feedback</a>
+          <a href="/api/auth/sign-out">
+            <Button
+              size={"sm"}
+              className="h-7 border-none bg-white hover:bg-white text-primary rounded-md cursor-pointer"
+            >
+              <DoorOpen className="text-muted-foreground" />
+              Sair
+            </Button>
+          </a>
         </div>
       </DropdownMenuContent>
     </DropdownMenu>

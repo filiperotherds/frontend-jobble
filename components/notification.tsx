@@ -1,4 +1,4 @@
-import { BellRing } from "lucide-react";
+import { Bell } from "lucide-react";
 import Link from "next/link";
 
 type NotificationItem = {
@@ -23,14 +23,14 @@ export function Notification() {
     <Link href={"/notifications"}>
       <div className="relative">
         {hasNotifications ? (
-          <div className="absolute z-20 right-0 top-0">
-            <div className="relative size-1.5 rounded-full flex items-center justify-center bg-notification" />
+          <div className="absolute z-20 right-1 top-1">
+            <div className="relative size-2.5 border-2 border-secondary rounded-full flex items-center justify-center bg-notification" />
           </div>
         ) : (
-          ""
+          <></>
         )}
         <div className="size-7 flex items-center justify-center">
-          <BellRing
+          <Bell
             className="text-muted-foreground"
             size={16}
             strokeWidth={2.5}

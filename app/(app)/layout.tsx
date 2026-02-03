@@ -17,9 +17,5 @@ export default async function AppLayout({
 
   const { user } = await auth();
 
-  if (user.accountType !== "INDIVIDUAL") {
-    redirect("/home");
-  }
-
   return <div className="">{children}</div>;
 }

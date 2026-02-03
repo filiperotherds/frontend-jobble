@@ -42,7 +42,7 @@ export function SolicitationList({ isCompact }: SolicitationListProps) {
   if (isCompact) {
     return (
       <section className="w-full space-y-4">
-        <Link href={"/organization/dashboard"}>
+        <Link href={"/overview"}>
           <div className="flex items-center justify-between p-4 rounded-xl border-b border-l border-border shadow-xs">
             <div className="flex flex-col items-start justify-start space-y-0.5">
               <h1 className="text-xl text-primary font-bold">Solicitações</h1>

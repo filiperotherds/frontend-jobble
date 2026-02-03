@@ -16,8 +16,6 @@ import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import { AlertTriangle, Loader2 } from "lucide-react";
 import { organizationSignUpAction } from "@/app/(auth)/organization/sign-up/actions";
 
-type signUpType = "INDIVIDUAL" | "ORGANIZATION";
-
 export function SignupForm({
   signUpType,
   className,
@@ -28,11 +26,7 @@ export function SignupForm({
   const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
     organizationSignUpAction,
     () => {
-      if (signUpType === "ORGANIZATION") {
-        router.push("/complete-signup");
-      } else {
-        router.push("/sign-in");
-      }
+      router.push("/onboarding");
     }
   );
 

@@ -6,7 +6,7 @@ import { SolicitationList } from "@/components/solicitation-list";
 import { Separator } from "@/components/ui/separator";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-export default function Dashboard() {
+export default function Overview() {
   const isMobile = useIsMobile();
 
   if (isMobile) {

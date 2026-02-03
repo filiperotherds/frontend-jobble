@@ -1,18 +1,13 @@
-import { Archive, CreditCard, Inbox, LayoutDashboard, Package, ReceiptText, Users, Wrench } from "lucide-react";
+import { BanknoteArrowDown, CircleDashed, ClipboardList, LayoutGrid, Package, ScrollText, Users, Wrench } from "lucide-react";
 
 export const navGroups = [
   {
     label: "Geral",
     items: [
       {
-        title: "Início",
-        url: "/dashboard",
-        icon: LayoutDashboard,
-      },
-      {
-        title: "Faturamento",
-        url: "/billing",
-        icon: CreditCard,
+        title: "Visão Geral",
+        url: "/overview",
+        icon: LayoutGrid,
       },
     ],
   },
@@ -22,18 +17,23 @@ export const navGroups = [
       {
         title: "Orçamentos",
         url: "/estimates",
-        icon: Inbox,
+        icon: ClipboardList,
         pending: 3,
       },
       {
-        title: "Serviços",
-        url: "/service-orders",
-        icon: ReceiptText,
+        title: "Em Progresso",
+        url: "/in-progress",
+        icon: CircleDashed,
       },
       {
-        title: "Serviços Arquivados",
-        url: "/archived-service-orders",
-        icon: Archive,
+        title: "Pagamentos",
+        url: "/payments",
+        icon: BanknoteArrowDown,
+      },
+      {
+        title: "Notas Fiscais",
+        url: "/invoices",
+        icon: ScrollText,
       },
     ],
   },

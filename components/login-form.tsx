@@ -15,7 +15,6 @@ import { AlertTriangle, Loader } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import { useFormState } from "@/hooks/use-form-state";
 import { useRouter } from "next/navigation";
-import { getProfile } from "@/http/get-profile";
 
 export function LoginForm({
   className,
@@ -26,14 +25,7 @@ export function LoginForm({
   const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
     signInWithEmailAndPassword,
     async () => {
-      //accountType não existe mais - alterar função
-      const { accountType } = await getProfile();
-
-      if (accountType === "INDIVIDUAL") {
-        router.push("/home");
-      } else {
-        router.push("/dashboard");
-      }
+      router.push("/overview");
     }
   );
 

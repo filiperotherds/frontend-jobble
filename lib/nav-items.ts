@@ -4,7 +4,7 @@ export const navItems = [
   {
     title: "Início",
     icon: House,
-    href: "/dashboard",
+    href: "/overview",
   },
   {
     title: "Orçamentos",
