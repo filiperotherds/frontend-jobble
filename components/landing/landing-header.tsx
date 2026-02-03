@@ -1,4 +1,4 @@
-import jobbleLogo from "@/assets/jobble-logo-white.png";
+import logo from "@/assets/base-brasil-white.png";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
@@ -8,7 +8,7 @@ export default function LandingHeader() {
   return (
     <div className="w-full max-w-7xl flex flex-row items-center justify-between mb-16">
       <div className="flex flex-row items-center justify-center gap-16">
-        <Image src={jobbleLogo} alt="Jobble" className="w-24" />
+        <Image src={logo} alt="Base Brasil" className="w-20" />
 
         <div className="hidden md:flex flex-row items-center justify-center gap-8">
           <Link href={"/soluções"}>
@@ -20,7 +20,7 @@ export default function LandingHeader() {
             </Button>
           </Link>
 
-          <a href={"https://shop.jobble.com.br"} target="_blank">
+          <a href={"https://loja.basebrasil.com.br"} target="_blank">
             <Button
               variant={"link"}
               className="text-white text-base font-medium hover:text-white/80 hover:no-underline"
@@ -63,7 +63,7 @@ export default function LandingHeader() {
       </div>
 
       <div className="flex md:hidden">
-        <Button size={"icon"} variant={"ghost"} >
+        <Button size={"icon"} variant={"ghost"}>
           <Menu className="text-white" strokeWidth={2.5} />
         </Button>
       </div>

@@ -26,70 +26,7 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "./ui/button";
-
-const navGroups = [
-  {
-    label: "Geral",
-    items: [
-      {
-        title: "Início",
-        url: "/dashboard",
-        icon: LayoutDashboard,
-      },
-      {
-        title: "Faturamento",
-        url: "/billing",
-        icon: CreditCard,
-      },
-    ],
-  },
-  {
-    label: "Operacional",
-    items: [
-      {
-        title: "Orçamentos",
-        url: "/estimates",
-        icon: Inbox,
-        pending: 3,
-      },
-      {
-        title: "Ordens de Serviço",
-        url: "/service-orders",
-        icon: ReceiptText,
-      },
-      {
-        title: "Ordens Arquivadas",
-        url: "/archived-service-orders",
-        icon: Archive,
-      },
-    ],
-  },
-  {
-    label: "Cadastros",
-    items: [
-      {
-        title: "Produtos",
-        url: "/products",
-        icon: Package,
-      },
-      {
-        title: "Serviços",
-        url: "/services",
-        icon: Wrench,
-      },
-    ],
-  },
-  {
-    label: "Relacionamento com Cliente",
-    items: [
-      {
-        title: "Clientes",
-        url: "/customers",
-        icon: Users,
-      },
-    ],
-  },
-];
+import { navGroups } from "@/lib/nav-groups";
 
 export default function AppSidebar() {
   const pathname = usePathname();

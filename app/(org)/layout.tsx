@@ -18,8 +18,7 @@ function formatSlug(path: string) {
 export async function generateMetadata() {
   return {
     title: {
-      template: 'Jobble - %s',
-      default: 'Jobble',
+      default: 'Base Brasil',
     },
   };
 }

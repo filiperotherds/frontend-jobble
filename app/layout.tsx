@@ -14,8 +14,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jobble - Início",
-  description: "",
+  title: "Base Brasil",
+  icons: {
+    icon: [
+      {
+        url: '/favicon-light.ico',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/favicon-dark.ico',
+        media: '(prefers-color-scheme: dark)',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

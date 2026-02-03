@@ -3,7 +3,7 @@
 import { forwardRef } from "react";
 import Image from "next/image";
 import jobbleLogo from "@/assets/jobble-logo.png";
-import { formatCNPJ } from "@/lib/cnpj-formatter";
+import { formatCnpj } from "@/lib/utils";
 
 interface Estimate {
   id: string;
@@ -51,7 +51,7 @@ interface EstimateDocumentProps {
 
 const EstimateDocument = forwardRef<HTMLDivElement, EstimateDocumentProps>(
   ({ organization, estimate }, ref) => {
-    const cnpj = organization?.cnpj ? formatCNPJ(organization.cnpj) : null;
+    const cnpj = organization?.cnpj ? formatCnpj(organization.cnpj) : null;
 
     const subtotal = estimate.items.reduce(
       (acc, item) => acc + item.quantity * item.unitValue,

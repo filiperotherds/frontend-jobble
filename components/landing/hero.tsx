@@ -32,7 +32,10 @@ export default function Hero() {
           </Button>
         </Link>
 
-        <p className="text-xs text-white">* Não exigimos cartão de crédito</p>
+        <p className="text-xs text-white">
+          
+          Não exigimos cartão de crédito
+        </p>
       </div>
 
       <div className="md:flex-1 flex flex-row items-center md:justify-end">
