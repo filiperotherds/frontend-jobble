@@ -6,7 +6,7 @@ import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/in
 
 interface PaymentDataProps {
     data: EstimateFormSchema;
-    updateField: (field: keyof EstimateFormSchema, value: string) => void;
+    updateField: (field: keyof EstimateFormSchema, value: string | Date | number | null) => void;
     setFormData: Dispatch<SetStateAction<EstimateFormSchema>>;
 }
 
@@ -69,7 +69,7 @@ export function PaymentData({
 
                     <Select
                         defaultValue={data.installments}
-                        onValueChange={(e) => updateField("installments", e)}
+                        onValueChange={(e) => updateField("installments", Number(e))}
                     >
                         <SelectTrigger>
                             <SelectValue placeholder="Parcelamento" />

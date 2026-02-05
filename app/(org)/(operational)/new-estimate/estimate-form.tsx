@@ -27,7 +27,7 @@ export function EstimateForm({
 
   const updateField = (
     field: keyof EstimateFormSchema,
-    value: string | Date
+    value: string | Date | number | null
   ) => {
     setFormData((prev) => ({
       ...prev,
@@ -141,6 +141,11 @@ export function EstimateForm({
             </Button>
           )}
         </div>
+        <input
+          type="hidden"
+          name="root-data"
+          value={JSON.stringify(formData)}
+        />
       </form>
     </div>
   );

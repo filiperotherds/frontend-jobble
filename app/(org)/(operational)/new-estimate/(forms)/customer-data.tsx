@@ -20,7 +20,7 @@ import { EstimateFormSchema } from "../estimate-form-schema";
 
 interface CustomerDataProps {
   data: EstimateFormSchema;
-  updateField: (field: keyof EstimateFormSchema, value: string) => void;
+  updateField: (field: keyof EstimateFormSchema, value: string | Date | number | null) => void;
   setFormData: Dispatch<SetStateAction<EstimateFormSchema>>;
 }
 

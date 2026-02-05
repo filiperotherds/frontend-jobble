@@ -16,7 +16,7 @@ import {
 
 interface EstimateDataProps {
   data: EstimateFormSchema;
-  updateField: (field: keyof EstimateFormSchema, value: string) => void;
+  updateField: (field: keyof EstimateFormSchema, value: string | Date | number | null) => void;
   setFormData: Dispatch<SetStateAction<EstimateFormSchema>>;
 }
 
@@ -156,9 +156,9 @@ export function EstimateData({
                     value={
                       item.unitValue
                         ? item.unitValue.toLocaleString("pt-BR", {
-                            minimumFractionDigits: 2,
-                            maximumFractionDigits: 2,
-                          })
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })
                         : "0,00"
                     }
                     onChange={(e) => {

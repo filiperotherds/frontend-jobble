@@ -70,7 +70,6 @@ export default function EstimatesClient({
   organization,
   estimates,
 }: EstimatesClientProps) {
-  // 1. CORREÇÃO: Inicialização segura. Se o array for vazio, inicia como null.
   const [selectedId, setSelectedId] = useState<string | null>(
     estimates.length > 0 ? estimates[0].id : null
   );
@@ -90,7 +89,7 @@ export default function EstimatesClient({
   });
 
   return (
-    <div className="bg-secondary w-full h-[calc(100vh-80px)] flex flex-row justify-between gap-1">
+    <div className="bg-secondary w-full h-[calc(100vh-80px)] flex flex-row justify-between gap-4">
       <EstimateList
         estimates={estimates}
         selectedId={selectedId || ""}
