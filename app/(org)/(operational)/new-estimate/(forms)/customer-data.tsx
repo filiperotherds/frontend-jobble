@@ -161,7 +161,7 @@ export function CustomerData({
       </Field>
 
       <div className="flex flex-col md:flex-row items-center gap-8">
-        <Field>
+        <Field className="w-3/4">
           <div className="flex flex-row items-center space-x-2">
             <FieldLabel>Endereço</FieldLabel>
             <span className="text-xs text-muted-foreground/80 font-medium">
@@ -175,7 +175,7 @@ export function CustomerData({
           />
         </Field>
 
-        <Field className="max-w-40">
+        <Field className="w-1/4">
           <div className="flex flex-row items-center space-x-2">
             <FieldLabel>Número</FieldLabel>
             <span className="text-xs text-muted-foreground/80 font-medium">

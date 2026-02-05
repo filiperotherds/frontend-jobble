@@ -7,7 +7,7 @@ export default async function EstimatesPage() {
 
   const estimates = await getEstimates();
 
-  const {  } = estimates;
+  const {} = estimates;
 
   return (
     <EstimatesClient

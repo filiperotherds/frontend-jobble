@@ -16,7 +16,7 @@ import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
-    <div className="font-sans w-full h-full flex flex-col items-center justify-start md:space-y-5 bg-secondary">
+    <div className="font-sans w-full h-full flex flex-col items-center justify-start md:space-y-5 bg-white">
       <div className="w-full flex flex-col items-center justify-center p-8 md:p-5 bg-blue-500 relative overflow-hidden">
         {/* Header */}
 
@@ -35,7 +35,7 @@ export default function Home() {
           >
             <path
               d="M0,40 C240,120 480,40 720,60 960,80 1200,120 1440,60 L1440,120 L0,120 Z"
-              fill="rgb(248 250 252)"
+              fill="#fff"
             />
           </svg>
 
@@ -46,13 +46,25 @@ export default function Home() {
           >
             <path
               d="M0,20 C240,80 480,120 720,90 960,60 1200,20 1440,60 L1440,120 L0,120 Z"
-              fill="rgb(248 250 252)"
+              fill="#fff"
             />
           </svg>
         </div>
       </div>
 
       <div className="w-full max-w-7xl flex flex-col items-start justify-start gap-16 p-8 md:p-5">
+        {/* Cards Section */}
+
+        <div className="w-full flex flex-wrap gap-4">
+          <div className="flex-1 h-60 rounded-lg shadow-sm hover:shadow-xl transition-all"></div>
+
+          <div className="flex-1 h-60 rounded-lg shadow-sm hover:shadow-xl transition-all"></div>
+
+          <div className="flex-1 h-60 rounded-lg shadow-sm hover:shadow-xl transition-all"></div>
+
+          <div className="flex-1 h-60 rounded-lg shadow-sm hover:shadow-xl transition-all"></div>
+        </div>
+
         {/* #1st Section */}
 
         <div className="w-full flex flex-col md:flex-row items-center justify-center gap-8">

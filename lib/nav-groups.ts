@@ -1,4 +1,12 @@
-import { BanknoteArrowDown, CircleDashed, ClipboardList, LayoutGrid, Package, ScrollText, Users, Wrench } from "lucide-react";
+import {
+  BanknoteArrowDown,
+  CircleDashed,
+  ClipboardList,
+  LayoutGrid,
+  Package,
+  ScrollText,
+  UsersRound,
+} from "lucide-react";
 
 export const navGroups = [
   {
@@ -41,24 +49,14 @@ export const navGroups = [
     label: "Cadastros",
     items: [
       {
-        title: "Produtos",
-        url: "/products",
+        title: "Itens",
+        url: "/items",
         icon: Package,
       },
       {
-        title: "Serviços",
-        url: "/services",
-        icon: Wrench,
-      },
-    ],
-  },
-  {
-    label: "Relacionamento com Cliente",
-    items: [
-      {
         title: "Clientes",
         url: "/customers",
-        icon: Users,
+        icon: UsersRound,
       },
     ],
   },

@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Geist } from "next/font/google";
+import { Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
-import NextTopLoader from 'nextjs-toploader';
+import NextTopLoader from "nextjs-toploader";
+import { Toaster } from "@/components/ui/sonner";
+import { CircleCheck } from "lucide-react";
 
-const geist = Geist({
-  variable: "--font-geist",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-inter-mono",
   subsets: ["latin"],
 });
 
@@ -18,12 +20,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/favicon-light.ico',
-        media: '(prefers-color-scheme: light)',
+        url: "/favicon-light.ico",
+        media: "(prefers-color-scheme: light)",
       },
       {
-        url: '/favicon-dark.ico',
-        media: '(prefers-color-scheme: dark)',
+        url: "/favicon-dark.ico",
+        media: "(prefers-color-scheme: dark)",
       },
     ],
   },
@@ -36,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth bg-secondary">
-      <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${inter.variable} ${geistMono.variable} antialiased`}>
         <NextTopLoader
           color="#3b82f6"
           initialPosition={0.08}
@@ -49,6 +51,7 @@ export default function RootLayout({
           shadow="0 0 10px #3b82f6,0 0 5px #3b82f6"
         />
         {children}
+        <Toaster />
       </body>
     </html>
   );

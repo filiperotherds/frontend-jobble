@@ -7,7 +7,17 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from "../ui/dropdown-menu";
-import { Flame, UserRound, House, CreditCard, Monitor, UsersRound, BriefcaseBusiness, DoorOpen } from "lucide-react";
+import {
+  UserRound,
+  House,
+  CreditCard,
+  Monitor,
+  UsersRound,
+  BriefcaseBusiness,
+  DoorOpen,
+  Sprout,
+  Flame,
+} from "lucide-react";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
 import verifiedIcon from "@/assets/verified.svg";
@@ -31,7 +41,7 @@ export async function ProfileButtonDesktop() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="px-3 py-1.5 max-w-60 flex items-center gap-3 bg-white rounded-lg outline-none cursor-pointer">
+      <DropdownMenuTrigger className="px-3 py-1.5 flex items-center gap-3 bg-white rounded-lg outline-none cursor-pointer">
         <div className="relative">
           <div className="absolute z-20 -bottom-0.5 -right-0.5">
             <Image src={verifiedIcon} alt="verified" />
@@ -53,7 +63,7 @@ export async function ProfileButtonDesktop() {
         </div>
 
         {/* <Badge className="bg-green-500/10 text-green-700 font-semibold">
-          <CircleDashed />
+          <Sprout />
           Grátis
         </Badge> */}
         <Badge className="bg-orange-600/10 text-orange-600 font-semibold">
@@ -91,7 +101,7 @@ export async function ProfileButtonDesktop() {
           <DropdownMenuItem asChild>
             <a href="/website">
               <Monitor />
-              Site da empresa
+              Portfólio profissional
             </a>
           </DropdownMenuItem>
 
@@ -111,7 +121,12 @@ export async function ProfileButtonDesktop() {
           </DropdownMenuItem>
         </div>
         <div className="p-2 w-full flex flex-row items-center justify-between">
-          <a href="/feedback" className="text-xs text-muted-foreground hover:underline">Feedback</a>
+          <a
+            href="/feedback"
+            className="text-xs text-muted-foreground hover:underline"
+          >
+            Feedback
+          </a>
           <a href="/api/auth/sign-out">
             <Button
               size={"sm"}

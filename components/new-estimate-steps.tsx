@@ -22,9 +22,9 @@ export function NewEstimateSteps({ currentStep }: NewEstimateStepsProps) {
             <div
               className={`shrink-0 flex items-center justify-center size-12 rounded-full border-2 text-sm font-semibold transition-colors duration-200 ${
                 isCompleted
-                  ? "bg-green-600 border-green-600 text-white"
+                  ? "bg-blue-500 border-blue-500 text-white"
                   : isActive
-                  ? "border-muted-foreground/80 text-zinc-700 bg-white"
+                  ? "border-blue-500/50 text-blue-500 bg-white"
                   : "border-gray-200 text-gray-400 bg-white"
               }`}
             >

@@ -13,34 +13,22 @@ import { createNewEstimate } from "./actions";
 import { useRouter } from "next/navigation";
 import { EstimateData } from "./(forms)/estimate-data";
 import { PaymentData } from "./(forms)/payment-data";
+import { toast } from "sonner";
 
-export function EstimateForm() {
+export function EstimateForm({
+  formData,
+  setFormData,
+}: {
+  formData: EstimateFormSchema;
+  setFormData: React.Dispatch<React.SetStateAction<EstimateFormSchema>>;
+}) {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
 
-  const date = new Date();
-  date.setDate(date.getDate() + 14);
-
-  const defaultValidity = date;
-  const defaultDeadline = new Date()
-
-  const [formData, setFormData] = useState<EstimateFormSchema>({
-    name: "",
-    phone: null,
-    email: null,
-    cep: null,
-    address: null,
-    number: null,
-    description: null,
-    deliveryDeadline: defaultDeadline,
-    items: [],
-    paymentMethod: null,
-    installments: null,
-    downPayment: null,
-    validity: defaultValidity,
-  });
-
-  const updateField = (field: keyof EstimateFormSchema, value: string | Date) => {
+  const updateField = (
+    field: keyof EstimateFormSchema,
+    value: string | Date
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [field]: value,
@@ -62,6 +50,11 @@ export function EstimateForm() {
   const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
     createNewEstimate,
     () => {
+      toast.success("#0001 - Novo orçamento adicionado", {
+        description: "R$ 80,00 - 05 Fev, 2026 às 9:02 AM",
+        position: "bottom-right",
+      });
+
       router.push("/estimates");
     }
   );
