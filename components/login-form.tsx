@@ -10,7 +10,7 @@ import {
   FieldSeparator,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { signInWithEmailAndPassword } from "@/app/(auth)/sign-in/actions";
+import { signInWithEmailAndPassword } from "@/app/(auth)/login/actions";
 import { AlertTriangle, Loader } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import { useFormState } from "@/hooks/use-form-state";
@@ -26,7 +26,7 @@ export function LoginForm({
     signInWithEmailAndPassword,
     async () => {
       router.push("/overview");
-    }
+    },
   );
 
   return (
@@ -47,13 +47,20 @@ export function LoginForm({
 
       <FieldGroup>
         <div className="flex flex-col items-start gap-1 text-left">
-          <h1 className="text-primary text-[28px] font-semibold">Acesse sua conta</h1>
+          <h1 className="text-primary text-[28px] font-semibold">
+            Acesse sua conta
+          </h1>
           <p className="text-muted-foreground text-sm text-balance">
             Entre com seu email para acessar sua conta
           </p>
         </div>
 
-        <Button disabled variant="outline" type="button" className="text-primary cursor-pointer">
+        <Button
+          disabled
+          variant="outline"
+          type="button"
+          className="text-primary cursor-pointer"
+        >
           <svg
             viewBox="0 0 64 64"
             fill="none"
@@ -81,13 +88,13 @@ export function LoginForm({
         </Button>
 
         <FieldSeparator>
-          <span className="text-primary">
-            Ou continue com
-          </span>
+          <span className="text-primary">Ou continue com</span>
         </FieldSeparator>
 
         <Field>
-          <FieldLabel className="text-primary" htmlFor="email">E-mail</FieldLabel>
+          <FieldLabel className="text-primary" htmlFor="email">
+            E-mail
+          </FieldLabel>
           <Input
             className="text-primary"
             id="email"
@@ -103,7 +110,9 @@ export function LoginForm({
         </Field>
         <Field>
           <div className="flex items-center">
-            <FieldLabel className="text-primary" htmlFor="password">Senha</FieldLabel>
+            <FieldLabel className="text-primary" htmlFor="password">
+              Senha
+            </FieldLabel>
             <a
               href="#"
               className="ml-auto text-sm text-muted-foreground underline-offset-4 hover:underline"
@@ -111,7 +120,12 @@ export function LoginForm({
               Esqueceu sua senha?
             </a>
           </div>
-          <Input className="text-primary" id="password" name="password" type="password" />
+          <Input
+            className="text-primary"
+            id="password"
+            name="password"
+            type="password"
+          />
           {errors?.password && (
             <p className="text-xs font-medium text-destructive">
               {errors.password[0]}
@@ -119,7 +133,11 @@ export function LoginForm({
           )}
         </Field>
         <Field>
-          <Button className="cursor-pointer font-semibold" type="submit" disabled={isPending}>
+          <Button
+            className="cursor-pointer font-semibold"
+            type="submit"
+            disabled={isPending}
+          >
             {isPending ? <Loader className="size-4 animate-spin" /> : "Entrar"}
           </Button>
         </Field>

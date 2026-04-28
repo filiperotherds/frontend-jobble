@@ -27,7 +27,7 @@ export function SignupForm({
     organizationSignUpAction,
     () => {
       router.push("/onboarding");
-    }
+    },
   );
 
   return (
@@ -55,7 +55,12 @@ export function SignupForm({
           </p>
         </div>
 
-        <Button disabled variant="outline" type="button" className="text-primary cursor-pointer">
+        <Button
+          disabled
+          variant="outline"
+          type="button"
+          className="text-primary cursor-pointer"
+        >
           <svg
             viewBox="0 0 64 64"
             fill="none"
@@ -83,15 +88,15 @@ export function SignupForm({
         </Button>
 
         <FieldSeparator>
-          <span className="text-primary">
-            Ou continue com
-          </span>
+          <span className="text-primary">Ou continue com</span>
         </FieldSeparator>
 
-
         <Field>
-          <FieldLabel className="text-primary" htmlFor="email">Email</FieldLabel>
-          <Input className="text-primary"
+          <FieldLabel className="text-primary" htmlFor="email">
+            Email
+          </FieldLabel>
+          <Input
+            className="text-primary"
             id="email"
             name="email"
             type="text"
@@ -104,8 +109,16 @@ export function SignupForm({
           )}
         </Field>
         <Field>
-          <FieldLabel className="text-primary" htmlFor="password">Senha</FieldLabel>
-          <Input className="text-primary" id="password" name="password" type="password" required />
+          <FieldLabel className="text-primary" htmlFor="password">
+            Senha
+          </FieldLabel>
+          <Input
+            className="text-primary"
+            id="password"
+            name="password"
+            type="password"
+            required
+          />
           {errors?.password && (
             <p className="text-xs font-medium text-destructive">
               {errors.password[0]}
@@ -114,8 +127,11 @@ export function SignupForm({
           <FieldDescription>Deve ter no mínimo 8 caracteres.</FieldDescription>
         </Field>
         <Field>
-          <FieldLabel className="text-primary" htmlFor="confirm_password">Confirme sua Senha</FieldLabel>
-          <Input className="text-primary"
+          <FieldLabel className="text-primary" htmlFor="confirm_password">
+            Confirme sua Senha
+          </FieldLabel>
+          <Input
+            className="text-primary"
             id="confirm_password"
             name="confirm_password"
             type="password"
@@ -128,7 +144,11 @@ export function SignupForm({
           )}
         </Field>
         <Field>
-          <Button className="cursor-pointer font-semibold" type="submit" disabled={isPending}>
+          <Button
+            className="cursor-pointer font-semibold"
+            type="submit"
+            disabled={isPending}
+          >
             {isPending ? (
               <Loader2 className="size-4 animate-spin" />
             ) : (
@@ -139,7 +159,10 @@ export function SignupForm({
 
         <Field>
           <FieldDescription className="px-6 text-center">
-            Já tem uma conta? <a href="/sign-in" className="text-primary font-medium">Entrar</a>
+            Já tem uma conta?{" "}
+            <a href="/login" className="text-primary font-medium">
+              Entrar
+            </a>
           </FieldDescription>
         </Field>
       </FieldGroup>

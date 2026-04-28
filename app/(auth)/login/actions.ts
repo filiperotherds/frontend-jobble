@@ -3,7 +3,7 @@
 import { cookies } from "next/headers";
 import { z } from "zod";
 
-import { signInWithPassword } from "@/http/sign-in-with-password";
+import { signInWithPassword } from "@/http/login-with-password";
 import { HTTPError } from "ky";
 
 const signInSchema = z.object({

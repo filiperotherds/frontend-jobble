@@ -9,7 +9,7 @@ export default async function PromotionalCard() {
   const { name } = await getProfile()!;
 
   if (!name) {
-    redirect("/sign-in");
+    redirect("/login");
   }
 
   const [firstName, ...fullName] = name?.split(" ");
@@ -28,7 +28,8 @@ export default async function PromotionalCard() {
               Bem-vindo(a) de volta, {firstName}!
             </h1>
             <span className="text-xs md:text-base text-muted-foreground">
-              Gerencie seus projetos pela Jobble e construa o seu portifólio na maior rede de prestadores do Brasil. 
+              Gerencie seus projetos pela Jobble e construa o seu portifólio na
+              maior rede de prestadores do Brasil.
             </span>
           </div>
           <div className="flex flex-row items-center justify-center space-x-2">
@@ -37,8 +38,12 @@ export default async function PromotionalCard() {
               Cartão Instagram
             </Button>
 
-            <Button variant={"outline"} size={"sm"} className="text-sm text-muted-foreground">
-              <Link/>
+            <Button
+              variant={"outline"}
+              size={"sm"}
+              className="text-sm text-muted-foreground"
+            >
+              <Link />
               Compartilhar Perfil
             </Button>
           </div>

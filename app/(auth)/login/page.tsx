@@ -1,7 +1,7 @@
 import { LoginForm } from "@/components/login-form";
 import Link from "next/link";
 
-import logo from "@/assets/base-brasil-white.png";
+import logo from "@/assets/astro_logo.png";
 
 export default function SignIn() {
   return (

@@ -10,7 +10,7 @@ import { PageTitleUpdater } from "@/components/page-title-updater";
 export async function generateMetadata() {
   return {
     title: {
-      default: 'Base Brasil',
+      default: "Base Brasil",
     },
   };
 }
@@ -21,7 +21,7 @@ export default async function OrgAppLayout({
   children: React.ReactNode;
 }>) {
   if (!isAuthenticated()) {
-    redirect("/sign-in");
+    redirect("/login");
   }
 
   return (
@@ -34,10 +34,9 @@ export default async function OrgAppLayout({
           <div className="w-full h-full p-8 md:px-4 md:py-0 gap-4 items-start justify-start flex flex-col bg-white md:bg-secondary">
             {children}
           </div>
-
         </main>
       </SidebarProvider>
       <MobileNavbar />
-    </div >
+    </div>
   );
 }

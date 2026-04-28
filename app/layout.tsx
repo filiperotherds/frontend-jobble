@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Inter } from "next/font/google";
+import { Geist_Mono, Geist } from "next/font/google";
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "@/components/ui/sonner";
-import { CircleCheck } from "lucide-react";
 
-const inter = Inter({
-  variable: "--font-inter",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-inter-mono",
+  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
@@ -38,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth bg-secondary">
-      <body className={`${inter.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
         <NextTopLoader
           color="#3b82f6"
           initialPosition={0.08}

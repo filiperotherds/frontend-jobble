@@ -10,15 +10,14 @@ export async function auth() {
   const token = (await cookies()).get("token")?.value;
 
   if (!token) {
-    redirect("/sign-in");
+    redirect("/login");
   }
 
   try {
     const user = await getProfile();
 
     return { user };
-  } catch {
-  }
+  } catch {}
 
   redirect("/api/auth/sign-out");
 }

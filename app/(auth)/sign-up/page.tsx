@@ -1,6 +1,6 @@
 import { SignupForm } from "@/components/signup-form";
 import Link from "next/link";
-import logo from "@/assets/base-brasil-white.png";
+import logo from "@/assets/astro_logo.png";
 
 export default function SignupPage() {
   return (
